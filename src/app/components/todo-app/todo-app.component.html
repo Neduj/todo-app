@@ -1,0 +1,89 @@
+<button
+  mat-raised-button
+  (click)="addTask()"
+  color="primary"
+  class="add-todo-btn"
+>
+  add todo
+</button>
+
+<mat-checkbox [(ngModel)]="toggle" (ngModelChange)="filterToggle(toggle)"
+  >Show completed</mat-checkbox
+>
+
+<mat-accordion>
+  <mat-expansion-panel
+    *ngFor="let task of tasks; index as i"
+    class="todo-list__container"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-checkbox
+          (ngModelChange)="isTaskCompleted(task)"
+          [(ngModel)]="task.isCompleted"
+        ></mat-checkbox>
+        <div class="todo-list__title">
+          {{ task.title | uppercase }}
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <img
+        *ngIf="task.attachment"
+        height="115"
+        width="135"
+        src="{{ task.attachment }}"
+        alt=""
+      />
+    </div>
+    <div>
+      <mat-form-field class="todo-list__task__todo">
+        <mat-label>TITLE</mat-label>
+        <input matInput [(ngModel)]="task.title" />
+      </mat-form-field>
+
+      <mat-form-field class="todo-list__date-field">
+        <mat-label>DUE DATE</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="task.dueDate" />
+        <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker
+          (yearSelected)="(task.dueDate)"
+        ></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="todo-list__textarea">
+        <mat-label>SUMMARY</mat-label>
+        <textarea
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          matInput
+          type="text"
+          [(ngModel)]="task.summary"
+        >
+        </textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>IMAGE URL</mat-label>
+        <input type="text" matInput [(ngModel)]="task.attachment" />
+      </mat-form-field>
+    </div>
+    <button
+      mat-raised-button
+      (click)="editOrSaveTask(task)"
+      class="todo-list__activity"
+      color="primary"
+    >
+      save
+    </button>
+    <button
+      mat-raised-button
+      (click)="deleteTask(task.id, i)"
+      color="warn"
+      class="todo-list__activity"
+    >
+      delete
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>

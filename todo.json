@@ -1,0 +1,45 @@
+{
+  "todoList": [
+    {
+      "id": 2,
+      "taskCategory": "back-end",
+      "taskTitle": "send data",
+      "taskDescription": "send data from back-end",
+      "taskCompleted": false
+    },
+    {
+      "taskCategory": "frsss",
+      "id": 3
+    },
+    {
+      "taskTitle": "use be",
+      "taskDescription": "try to use bem metodology",
+      "taskCategory": "front",
+      "id": 4
+    },
+    {
+      "taskTitle": "use be",
+      "taskDescription": "try to use bem metodology",
+      "taskCategory": "",
+      "id": 5
+    },
+    {
+      "taskTitle": "use be",
+      "taskDescription": "try to use bem metodology",
+      "taskCategory": "front",
+      "id": 6
+    },
+    {
+      "taskTitle": "Angular Rxjs curses",
+      "taskDescription": "5/10/2020",
+      "taskCategory": "React js courses",
+      "id": 7
+    },
+    {
+      "taskTitle": "title",
+      "taskDescription": "description",
+      "taskCategory": "front",
+      "id": 8
+    }
+  ]
+}
